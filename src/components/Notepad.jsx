@@ -1,11 +1,19 @@
 import React from "react";
 import Note from "./Note";
 
-const Notepad = ({ notes }) => {
+const Notepad = ({ notes, deleteNoteHandler }) => {
   return (
     <div className="notePad">
       {notes.map((note, index) => {
-        return <Note title={note.title} text={note.text} key={index} />;
+        return (
+          <Note
+            id={note.id}
+            title={note.title}
+            text={note.text}
+            key={index}
+            deleteNoteHandler={deleteNoteHandler}
+          />
+        );
       })}
     </div>
   );

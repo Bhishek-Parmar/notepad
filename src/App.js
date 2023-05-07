@@ -21,6 +21,7 @@ function App() {
 
   function addNoteHandler(noteTitle, text) {
     const newNote = {
+      id: notes.length + 1,
       title: noteTitle,
       text: text,
     };
@@ -28,12 +29,23 @@ function App() {
     localStorage.setItem("notes", JSON.stringify(notes));
     console.log("note added");
     setCreateNoteOpen(false);
+    console.log(notes);
+  }
+  function deleteNoteHandler(noteId) {
+    const filteredNotes = notes.filter((note) => note.id !== noteId);
+    setNotes(filteredNotes);
+    localStorage.setItem("notes", JSON.stringify(notes));
+    console.log("note deleted");
   }
 
   return (
     <div className="App">
       <Header className="header" />
-      <Notepad className="notePad" notes={notes} />
+      <Notepad
+        className="notePad"
+        notes={notes}
+        deleteNoteHandler={deleteNoteHandler}
+      />
       {createNoteOpen && (
         <AddNote
           className="addNote"
