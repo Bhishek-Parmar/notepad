@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import AddNote from "./components/AddNote";
 import AddNoteButton from "./components/AddNoteButton";
@@ -13,6 +13,10 @@ function App() {
   );
   // const [isLocked, toggle] = useBodyScrollLock();
 
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
+
   function handleClick() {
     setCreateNoteOpen(!createNoteOpen);
     // toggle();
@@ -26,7 +30,6 @@ function App() {
       text: text,
     };
     setNotes([...notes, newNote]);
-    localStorage.setItem("notes", JSON.stringify(notes));
     console.log("note added");
     setCreateNoteOpen(false);
     console.log(notes);
@@ -34,7 +37,6 @@ function App() {
   function deleteNoteHandler(noteId) {
     const filteredNotes = notes.filter((note) => note.id !== noteId);
     setNotes(filteredNotes);
-    localStorage.setItem("notes", JSON.stringify(notes));
 
     if (filteredNotes.length === 0) {
       localStorage.clear();
