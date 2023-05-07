@@ -1,0 +1,9 @@
+.header {
+  background-color: rgb(237, 237, 25);
+  height: 8vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.5vw;
+}
