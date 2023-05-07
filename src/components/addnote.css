@@ -44,17 +44,22 @@
 .options-area {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   flex-grow: 1;
 }
 .btn {
   border-radius: 1.4rem;
   background-color: red;
   color: white;
+  height: 3rem;
   margin: 1rem;
-  padding: 0.5rem;
-  font-size: 1.1rem;
+  padding: 0rem;
+  font-size: 1.3rem;
   /* box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.5); */
   cursor: pointer;
   user-select: none;
+}
+.disabled-add-btn {
+  background-color: grey;
+  cursor: not-allowed;
 }

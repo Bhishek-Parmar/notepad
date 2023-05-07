@@ -11,7 +11,7 @@ const AddNote = ({ handleClick, addNoteHandler }) => {
   //   }, [title, text]);
 
   function handleAddClick() {
-    addNoteHandler(title, text);
+    if (title.length !== 0 && text.length !== 0) addNoteHandler(title, text);
   }
 
   return (
@@ -37,7 +37,14 @@ const AddNote = ({ handleClick, addNoteHandler }) => {
             />
           </div>
           <div className="options-area">
-            <button className="add-btn btn" onClick={handleAddClick}>
+            <button
+              className={
+                title.length === 0 || text.length === 0
+                  ? " disabled-add-btn btn"
+                  : "add-btn btn"
+              }
+              onClick={handleAddClick}
+            >
               Add
             </button>
             <button className="cancel-btn btn" onClick={handleClick}>

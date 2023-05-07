@@ -7,7 +7,7 @@ const Note = ({ id, title, text, deleteNoteHandler }) => {
       <div className="content">
         <p>{text}</p>
       </div>
-      <button className="btn" onClick={() => deleteNoteHandler(id)}>
+      <button className="note-btn" onClick={() => deleteNoteHandler(id)}>
         Delete
       </button>
     </div>
