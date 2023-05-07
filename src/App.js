@@ -35,6 +35,10 @@ function App() {
     const filteredNotes = notes.filter((note) => note.id !== noteId);
     setNotes(filteredNotes);
     localStorage.setItem("notes", JSON.stringify(notes));
+
+    if (filteredNotes.length === 0) {
+      localStorage.clear();
+    }
     console.log("note deleted");
   }
 

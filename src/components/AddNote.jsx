@@ -28,7 +28,7 @@ const AddNote = ({ handleClick, addNoteHandler }) => {
         </div>
         <div className="note-body">
           <div className="text-area">
-            <input
+            <textarea
               type="text"
               className="text-area-input"
               placeholder="Write here..."
