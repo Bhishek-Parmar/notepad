@@ -1,5 +1,6 @@
 import React from "react";
 import Note from "./Note";
+import "./notepad.css";
 
 const Notepad = ({ notes, deleteNoteHandler }) => {
   return (
